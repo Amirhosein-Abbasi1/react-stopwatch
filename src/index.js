@@ -3,11 +3,13 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 
 import Title from "./title";
+import Timer from "./timer";
 
 const App = () => {
   return (
     <>
       <Title />
+      <Timer />
     </>
   );
 };

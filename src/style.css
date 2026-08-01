@@ -48,6 +48,7 @@ body {
 }
 .world-time-icon {
   font-size: 1.4rem;
+  padding-top: 0.3rem;
 }
 .world-time-text {
   overflow: hidden;
