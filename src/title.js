@@ -2,20 +2,28 @@ import { BiAlarm, BiSolidMoon, BiSolidSun } from "react-icons/bi";
 
 const Title = () => {
   return (
-    <div>
-      <button className="world-time-btn" type="button">
-        <span className="world-time-icon">
-          <BiAlarm />
-        </span>
-        <span className="world-time-text">World Clock</span>
-      </button>
+    <div className="title-main-div">
+      <div className="title-left">
+        <button className="world-time-btn">
+          <span className="world-time-icon">
+            <BiAlarm />
+          </span>
+          <span className="world-time-text">Clock</span>
+        </button>
+      </div>
 
       <p className="title-name">Stopwatch</p>
 
-      <button className="theme-btn" type="button">
-        <span className="theme-dark-mode-btn"><BiSolidMoon /></span>
-        <span className="theme-light-mode-btn"><BiSolidSun /></span>
-      </button>
+      <div className="title-right">
+        <button className="theme-btn">
+          <span className="theme-dark-mode-btn">
+            <BiSolidMoon />
+          </span>
+          <span className="theme-light-mode-btn">
+            <BiSolidSun />
+          </span>
+        </button>
+      </div>
     </div>
   );
 };

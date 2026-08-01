@@ -1,0 +1,94 @@
+/* reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #101216;
+}
+
+/* Title section ------------ */
+
+.title-main-div {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  margin-top: 1rem;
+}
+
+/* title left side */
+.title-left {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.world-time-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  color: white;
+  background-color: #1e212b;
+  border: 1px solid #46474b;
+  transition: width 0.5s ease;
+}
+.world-time-btn:hover {
+  width: 5.5rem;
+  border-radius: 1rem;
+}
+.world-time-icon {
+  font-size: 1.4rem;
+}
+.world-time-text {
+  overflow: hidden;
+  padding-left: 0.5rem;
+}
+
+/* title */
+.title-name {
+  white-space: nowrap;
+  font-size: 1rem;
+  color: white;
+}
+
+/* title right side */
+.title-right {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.theme-btn {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  right: 0;
+  width: 3.6rem;
+  height: 2.2rem;
+  margin-right: 1rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #1e212b;
+  border: 1px solid #46474b;
+}
+.theme-dark-mode-btn {
+  position: absolute;
+  left: 0.3rem;
+}
+.theme-light-mode-btn {
+  position: absolute;
+  right: 0.3rem;
+  color: #a6a8af;
+}
