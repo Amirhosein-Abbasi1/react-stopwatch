@@ -12,7 +12,7 @@ body {
   background-color: #101216;
 }
 
-/* Title section ------------ */
+/* Title Section ---------------------- */
 
 .title-main-div {
   display: flex;
@@ -91,5 +91,32 @@ body {
 .theme-light-mode-btn {
   position: absolute;
   right: 0.3rem;
+  color: #a6a8af;
+}
+
+
+/* Timer Component Section ------------- */
+.timer-component-main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timer-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 15rem;
+  margin-top: 2rem;
+  border-radius: 50%;
+  font-size: 2.4rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #1e212b;
+  color: white;
+}
+.milisecond {
+  font-size: 1.3rem;
+  margin: 0 0 -0.7rem 0.4rem;
   color: #a6a8af;
 }
