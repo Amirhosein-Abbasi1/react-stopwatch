@@ -94,8 +94,9 @@ body {
   color: #a6a8af;
 }
 
-
 /* Timer Component Section ------------- */
+
+/* timer ----- */
 .timer-component-main-div {
   display: flex;
   flex-direction: column;
@@ -106,12 +107,12 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 15rem;
-  height: 15rem;
+  width: 17rem;
+  height: 17rem;
   margin-top: 2rem;
   border-radius: 50%;
   font-size: 2.4rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: sans-serif;
   background-color: #1e212b;
   color: white;
 }
@@ -119,4 +120,62 @@ body {
   font-size: 1.3rem;
   margin: 0 0 -0.7rem 0.4rem;
   color: #a6a8af;
+}
+
+/* buttons ------- */
+.buttons-section {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 0 0.7rem 0;
+}
+.btn-with-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 -1.6rem 0;
+}
+.btn-with-title button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1rem;
+  color: #dbdbdb;
+  border-radius: 50%;
+  background-color: #1e212b;
+  border: 1px solid #46474b;
+}
+.btn-with-title .reset-btn {
+  font-size: 1.3rem;
+}
+.btn-with-title p {
+  font-size: 0.7rem;
+  color: #dbdbdb;
+}
+.start-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  width: 8rem;
+  height: 3.5rem;
+  font-size: 0.9rem;
+  color: white;
+  border-radius: 1.7rem;
+  border: 1px solid #46474b;
+  background: linear-gradient(
+    105deg,
+    rgba(73, 102, 230, 1) 0%,
+    rgba(119, 74, 224, 1) 67%,
+    rgba(135, 70, 189, 1) 100%
+  );
 }
