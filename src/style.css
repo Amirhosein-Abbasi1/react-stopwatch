@@ -179,3 +179,47 @@ body {
     rgba(135, 70, 189, 1) 100%
   );
 }
+
+.btn-with-title button:disabled {
+  opacity: 0.4;
+}
+
+/* Lap Section --------------------- */
+
+.lap-section {
+  width: 17rem;
+  max-height: 12rem;
+  margin-top: 1rem;
+  overflow-y: auto;
+  border-radius: 0.8rem;
+  background-color: #1e212b;
+  border: 1px solid #46474b;
+}
+
+.lap-list {
+  list-style: none;
+}
+
+.lap-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  color: white;
+  border-bottom: 1px solid #2a2d38;
+}
+
+.lap-item:last-child {
+  border-bottom: none;
+}
+
+.lap-number {
+  color: #a6a8af;
+}
+
+.lap-diff {
+  color: #a6a8af;
+  font-size: 0.75rem;
+}
