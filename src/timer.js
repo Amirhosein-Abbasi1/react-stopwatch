@@ -17,6 +17,9 @@ const formatTime = (totalMs) => {
   }`;
 };
 
+const RING_RADIUS = 89;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
 const Timer = () => {
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
@@ -29,6 +32,9 @@ const Timer = () => {
   let m = minute;
   let s = second;
   let milli = milliSecond;
+
+  const ringProgress = (s + milli / 100) / 60;
+  const ringOffset = RING_CIRCUMFERENCE * (1 - ringProgress);
 
   const startTimer = () => {
     if (isStart) return;
@@ -65,7 +71,7 @@ const Timer = () => {
     setIsStart(false);
   };
 
-  const lapTimer = () => {
+  const addLap = () => {
     if (!isStart) return;
 
     const currentTotalMs = m * 60000 + s * 1000 + milli * 10;
@@ -96,11 +102,43 @@ const Timer = () => {
 
   return (
     <div className="timer-component-main-div">
-      <div className="timer-section">
-        <p className="minute-and-second">
-          {` ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s} `}
-        </p>
-        <p className="milisecond">{`. ${milli > 9 ? milli : "0" + milli}`}</p>
+      <div className="timer-section-wrapper">
+        <svg className="progress-ring" viewBox="0 0 190 190">
+          <defs>
+            <linearGradient
+              id="progressGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="rgb(73, 102, 230)" />
+              <stop offset="67%" stopColor="rgb(119, 74, 224)" />
+              <stop offset="100%" stopColor="rgb(135, 70, 189)" />
+            </linearGradient>
+          </defs>
+          <circle
+            className="progress-ring-bg"
+            cx="95"
+            cy="95"
+            r={RING_RADIUS}
+          />
+          <circle
+            className={`progress-ring-fill${isStart ? " active" : ""}`}
+            cx="95"
+            cy="95"
+            r={RING_RADIUS}
+            strokeDasharray={RING_CIRCUMFERENCE}
+            strokeDashoffset={ringOffset}
+          />
+        </svg>
+
+        <div className="timer-section">
+          <p className="minute-and-second">
+            {` ${m > 9 ? m : "0" + m} : ${s > 9 ? s : "0" + s} `}
+          </p>
+          <p className="milisecond">{`. ${milli > 9 ? milli : "0" + milli}`}</p>
+        </div>
       </div>
 
       <div className="buttons-section">
@@ -108,7 +146,7 @@ const Timer = () => {
           <button
             className="lap-btn"
             type="button"
-            onClick={lapTimer}
+            onClick={addLap}
             disabled={!isStart}
           >
             <GrFlagFill />

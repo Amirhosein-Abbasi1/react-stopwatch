@@ -102,14 +102,55 @@ body {
   flex-direction: column;
   align-items: center;
 }
+.timer-section-wrapper {
+  position: relative;
+  width: 19rem;
+  height: 19rem;
+  margin-top: 2rem;
+}
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.progress-ring-bg {
+  fill: none;
+  stroke: #2a2d38;
+  stroke-width: 6;
+}
+.progress-ring-fill {
+  fill: none;
+  stroke: url(#progressGradient);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 4px rgba(119, 74, 224, 0.7));
+}
+.progress-ring-fill.active {
+  animation: progress-glow-pulse 1.6s ease-in-out infinite;
+}
+@keyframes progress-glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(119, 74, 224, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 11px rgba(135, 70, 189, 1));
+  }
+}
 .timer-section {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 17rem;
   height: 17rem;
-  margin-top: 2rem;
   border-radius: 50%;
   font-size: 2.4rem;
   font-family: sans-serif;
