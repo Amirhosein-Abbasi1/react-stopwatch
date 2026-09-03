@@ -1,6 +1,6 @@
 import { BiAlarm, BiSolidMoon, BiSolidSun } from "react-icons/bi";
 
-const Title = () => {
+const Title = ({ theme, toggleTheme }) => {
   return (
     <div className="title-main-div">
       <div className="title-left">
@@ -15,11 +15,19 @@ const Title = () => {
       <p className="title-name">Stopwatch</p>
 
       <div className="title-right">
-        <button className="theme-btn">
-          <span className="theme-dark-mode-btn">
+        <button className="theme-btn" type="button" onClick={toggleTheme}>
+          <span
+            className={`theme-dark-mode-btn${
+              theme === "dark" ? " active" : ""
+            }`}
+          >
             <BiSolidMoon />
           </span>
-          <span className="theme-light-mode-btn">
+          <span
+            className={`theme-light-mode-btn${
+              theme === "light" ? " active" : ""
+            }`}
+          >
             <BiSolidSun />
           </span>
         </button>

@@ -7,9 +7,29 @@
   box-sizing: border-box;
 }
 
+/* Theme variables ---------------------- */
+:root {
+  --bg-color: #101216;
+  --surface-color: #1e212b;
+  --border-color: #46474b;
+  --divider-color: #2a2d38;
+  --text-primary: #ffffff;
+  --text-secondary: #a6a8af;
+}
+
+body.light-theme {
+  --bg-color: #f2f3f6;
+  --surface-color: #ffffff;
+  --border-color: #d9dade;
+  --divider-color: #e9eaed;
+  --text-primary: #17181c;
+  --text-secondary: #6b6d76;
+}
+
 body {
   font-family: sans-serif;
-  background-color: #101216;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
 }
 
 /* Title Section ---------------------- */
@@ -37,10 +57,13 @@ body {
   border-radius: 50%;
   margin-left: 1rem;
   padding-left: 0.5rem;
-  color: white;
-  background-color: #1e212b;
-  border: 1px solid #46474b;
-  transition: width 0.5s ease;
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition:
+    width 0.5s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 .world-time-btn:hover {
   width: 5.5rem;
@@ -59,7 +82,7 @@ body {
 .title-name {
   white-space: nowrap;
   font-size: 1rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 /* title right side */
@@ -80,18 +103,29 @@ body {
   padding: 0.4rem;
   border-radius: 1rem;
   font-size: 1.2rem;
-  color: white;
-  background-color: #1e212b;
-  border: 1px solid #46474b;
+  color: var(--text-primary);
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 .theme-dark-mode-btn {
   position: absolute;
   left: 0.3rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 .theme-light-mode-btn {
   position: absolute;
   right: 0.3rem;
-  color: #a6a8af;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+.theme-dark-mode-btn.active,
+.theme-light-mode-btn.active {
+  color: var(--text-primary);
 }
 
 /* Timer Component Section ------------- */
@@ -118,7 +152,7 @@ body {
 }
 .progress-ring-bg {
   fill: none;
-  stroke: #2a2d38;
+  stroke: var(--divider-color);
   stroke-width: 6;
 }
 .progress-ring-fill {
@@ -154,13 +188,14 @@ body {
   border-radius: 50%;
   font-size: 2.4rem;
   font-family: sans-serif;
-  background-color: #1e212b;
-  color: white;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
 }
 .milisecond {
   font-size: 1.3rem;
   margin: 0 0 -0.7rem 0.4rem;
-  color: #a6a8af;
+  color: var(--text-secondary);
 }
 
 /* buttons ------- */
@@ -189,17 +224,20 @@ body {
   width: 3.5rem;
   height: 3.5rem;
   font-size: 1rem;
-  color: #dbdbdb;
+  color: var(--text-secondary);
   border-radius: 50%;
-  background-color: #1e212b;
-  border: 1px solid #46474b;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 .btn-with-title .reset-btn {
   font-size: 1.3rem;
 }
 .btn-with-title p {
   font-size: 0.7rem;
-  color: #dbdbdb;
+  color: var(--text-secondary);
 }
 .start-btn {
   display: flex;
@@ -212,7 +250,7 @@ body {
   font-size: 0.9rem;
   color: white;
   border-radius: 1.7rem;
-  border: 1px solid #46474b;
+  border: 1px solid var(--border-color);
   background: linear-gradient(
     105deg,
     rgba(73, 102, 230, 1) 0%,
@@ -233,8 +271,11 @@ body {
   margin-top: 1rem;
   overflow-y: auto;
   border-radius: 0.8rem;
-  background-color: #1e212b;
-  border: 1px solid #46474b;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .lap-list {
@@ -248,8 +289,8 @@ body {
   align-items: center;
   padding: 0.6rem 1rem;
   font-size: 0.85rem;
-  color: white;
-  border-bottom: 1px solid #2a2d38;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--divider-color);
 }
 
 .lap-item:last-child {
@@ -257,10 +298,10 @@ body {
 }
 
 .lap-number {
-  color: #a6a8af;
+  color: var(--text-secondary);
 }
 
 .lap-diff {
-  color: #a6a8af;
+  color: var(--text-secondary);
   font-size: 0.75rem;
 }
