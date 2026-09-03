@@ -6,12 +6,23 @@ import {
   GrPauseFill,
 } from "react-icons/gr";
 import { useState } from "react";
+import Lap from "./lap";
+
+const formatTime = (totalMs) => {
+  const mm = Math.floor(totalMs / 60000);
+  const ss = Math.floor((totalMs % 60000) / 1000);
+  const ms = Math.floor((totalMs % 1000) / 10);
+  return `${mm > 9 ? mm : "0" + mm}:${ss > 9 ? ss : "0" + ss}.${
+    ms > 9 ? ms : "0" + ms
+  }`;
+};
 
 const Timer = () => {
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
   const [milliSecond, setMilliSecond] = useState(0);
   const [isStart, setIsStart] = useState(false);
+  const [laps, setLaps] = useState([]);
 
   const timerRef = useRef(null);
 
@@ -54,6 +65,26 @@ const Timer = () => {
     setIsStart(false);
   };
 
+  const lapTimer = () => {
+    if (!isStart) return;
+
+    const currentTotalMs = m * 60000 + s * 1000 + milli * 10;
+
+    setLaps((prev) => {
+      const lastTotalMs = prev.length > 0 ? prev[prev.length - 1].totalMs : 0;
+      const diffMs = currentTotalMs - lastTotalMs;
+
+      return [
+        ...prev,
+        {
+          totalMs: currentTotalMs,
+          time: formatTime(currentTotalMs),
+          diff: formatTime(diffMs),
+        },
+      ];
+    });
+  };
+
   return (
     <div className="timer-component-main-div">
       <div className="timer-section">
@@ -65,7 +96,12 @@ const Timer = () => {
 
       <div className="buttons-section">
         <div className="btn-with-title">
-          <button className="lap-btn" type="button">
+          <button
+            className="lap-btn"
+            type="button"
+            onClick={lapTimer}
+            disabled={!isStart}
+          >
             <GrFlagFill />
           </button>
           <p>Lap</p>
@@ -87,6 +123,8 @@ const Timer = () => {
           <p>Reset</p>
         </div>
       </div>
+
+      <Lap laps={laps} />
     </div>
   );
 };
