@@ -85,6 +85,15 @@ const Timer = () => {
     });
   };
 
+  const resetTimer = () => {
+    clearInterval(timerRef.current);
+    setIsStart(false);
+    setMinute(0);
+    setSecond(0);
+    setMilliSecond(0);
+    setLaps([]);
+  };
+
   return (
     <div className="timer-component-main-div">
       <div className="timer-section">
@@ -117,7 +126,7 @@ const Timer = () => {
         </button>
 
         <div className="btn-with-title">
-          <button className="reset-btn" type="button">
+          <button className="reset-btn" type="button" onClick={resetTimer}>
             <GrPowerReset />
           </button>
           <p>Reset</p>
