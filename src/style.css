@@ -386,3 +386,53 @@ body {
     max-height: 13rem;
   }
 }
+/* ---------- 768px ---------- */
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  #root {
+    width: 100%;
+    max-width: 25rem;
+  }
+  .title-main-div {
+    height: 3.5rem;
+    margin-top: 1.5rem;
+  }
+  .title-name {
+    font-size: 1.4rem;
+  }
+  .timer-section-wrapper {
+    margin-top: 2rem;
+  }
+  .timer-section {
+    font-size: 3rem;
+  }
+  .milisecond {
+    font-size: 1.5rem;
+  }
+  .buttons-section {
+    height: 8rem;
+    gap: 1.5rem;
+  }
+  .btn-with-title button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.15rem;
+  }
+  .start-btn {
+    width: 9rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+  .lap-section {
+    width: 21rem;
+    max-height: 15rem;
+    margin-top: 1.5rem;
+  }
+  .lap-item {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
